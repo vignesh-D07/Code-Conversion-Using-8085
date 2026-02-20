@@ -1,4 +1,6 @@
 # Code-Conversion-Using-8085
+# NAME: D VIGNESH 
+# REG NO: 212224050059
 
 ## Aim:
 
@@ -21,10 +23,34 @@ To write 8085 microprocessor programs for converting:
 6.	Store the ASCII equivalent in memory location 4300H and 4301H.
 
 ## Program:
-
+```
+LDA 4200H;
+MOV B, A;
+ANI 0f0H;
+RRC;
+RRC
+RRC
+RRC;
+CPI 0AH;
+JC ADD30;
+ADI 37H;
+JMP STORE1;
+ADD30: ADI 30H;
+STORE1: STA 4300H;
+MOV A, B;
+ANI 0FH;
+CPI 0AH;
+JC ADD30L;
+ADI 37H;
+JMP STORE2;
+ADD30L: ADI 30H;
+STORE2: STA 4301H;
+HLT;
+```
 
 ## Output:
-
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a2387f58-e309-4142-a680-1d445009cc7f" />
+<img width="305" height="447" alt="image" src="https://github.com/user-attachments/assets/5bd6fdc3-ddaf-4c5d-9ac2-cddec0a93c45" />
 
 ## Program 2: ASCII to Hexadecimal Conversion
 
@@ -37,11 +63,35 @@ To write 8085 microprocessor programs for converting:
 5.	Store the result in memory location 4300H.
 
 ## Program:
+```
+LDA 4200H;
+CPI 3AH;
+JC SUB30;
+SUI 37H;
+JMP STOREH;
+SUB30: SUI 30H;
 
+STOREH: MOV C, A;
+LDA 4201H;
+CPI 3AH;
+JC SUB30L;
+SUI 37H;;
+JMP STOREL;
+SUB30L: SUI 30H;
+STOREL: MOV B, A;
+MOV A, C;
+RLC 
+RLC
+RLC
+RLC
+ADD B;
+STA 4300H;
+HLT
+```
 
 ## Output:
-
-
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/7377e4d0-77aa-4246-811c-7a5fe55d2822" />
+<img width="313" height="372" alt="image" src="https://github.com/user-attachments/assets/9e5f8406-869e-4688-b8a2-4581a52f2b9d" />
 
 ## Result:
 
